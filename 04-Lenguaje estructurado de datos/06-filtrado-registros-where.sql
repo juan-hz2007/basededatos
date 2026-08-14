@@ -304,3 +304,123 @@ FROM productos AS p
 
 
 	-- TODO revisar NOT IN y like 
+
+	-- NOT IN 
+	--EXCLUYE LOS VALORES INXLUIDOS EN LA LISTA 
+
+	--Mostrar los datos de los emplados que no perteneescan ni al departamento 1 ni al 2
+
+	SELECT 
+	e.id_empleado,
+	e.nombre
+	e.id_departemento
+	FROM empleqados AS e
+	WHERE e.id_departamento NOT IN (1,2);
+
+	/*============================================================================================
+
+	operador like 
+
+	LIKE permite buscar patrones dentro de valores de texto
+
+	SINTAXIS
+
+	WHRERE columna LIKE patron
+
+	los principales son:
+
+	comodin            significado
+		%				Cero, uno a varios caracteres 
+		-                Exactamente un caracter
+		[abc]             un caracter incluido en la lista
+		[a-f]              un caracter inbcluido en el rango
+		[^abc]             unj carcter no  incluido en la lista     
+
+============================================================================================*/
+
+
+
+
+--comidin %
+-- el sikbolo % representa cualquier cantidad de carecteres , incluyendo cero caracteres
+
+-- comienza con
+
+-- WHERE nombre LIKE 'Cliente1%'
+
+
+--Significado: valores que comienzan con Cliente1
+
+--TERMINA CON
+--WHERE correo LIKE %mail.com
+-- Significa : valores que terminan con mail.com
+
+--CONTIENE
+-- WHERE nombre LIKE '%a%'
+-- Significa : valores que contienen el caracter a en cualquier posicion 
+
+-- Mostrar los productos donde el codigo comiemce con P001
+
+SELECT 
+p.codigo,
+p.nombre
+p.precio
+FROM productos AS p
+WHERE p.codigo LIKE 'P001%';
+
+
+-- Mostar los ddatos de los cleintes en donde su correo termine con 10@mail.com
+
+SELECT
+c.id_cliente 
+c.nombre
+c.correo
+FROM clientes AS c
+WHERE c.correo LIKE '%10@mail.com';
+
+--MOSTar los datos de losmproductos donde el nombre contenga el carecter 1
+
+SELECT 
+p.codigo
+p.nombre
+p.precio
+FROM productos AS p
+WHERE p.nombre LIKE '%1%';
+
+--comodin de un caracter 
+-- el guion bajo _ representa exactamente un caracter 
+
+-- SELECCIONA LOS DATOS DE LOS PRODUCTOS DONDE EL CODIGO COMIENCE CON P000 Y despues exactamente 
+-- un careter adicional 
+SELECT 
+p.codigo
+p.nombre
+p.precio
+FROM productos AS p 
+WHERE p.codigo LIKE 'P000_';
+
+
+SELECT 
+p.codigo
+p.nombre
+p.precio
+FROM productos AS p 
+WHERE p.codigo LIKE 'P000%';
+
+SELECT 
+p.codigo
+p.nombre
+p.precio
+FROM productos AS p 
+WHERE p.codigo LIKE 'P0_0__';
+
+
+
+
+
+
+
+
+
+
+
