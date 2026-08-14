@@ -1,18 +1,12 @@
-/*=========================================================
-    CREAR LA BASE DE DATOS
-=========================================================*/
+
 CREATE DATABASE cursos_db;
 GO
 
-/*=========================================================
-    UTILIZAR LA BASE DE DATOS
-=========================================================*/
+
 USE cursos_db;
 GO
 
-/*=========================================================
-    CREAR TABLA PROFESOR
-=========================================================*/
+
 CREATE TABLE profesor(
 	id_profesor INT NOT NULL IDENTITY(1,1)
 	CONSTRAINT pk_profesor
@@ -36,9 +30,6 @@ CREATE TABLE profesor(
 );
 GO
 
-/*=========================================================
-    CREAR TABLA CURSO
-=========================================================*/
 CREATE TABLE curso(
 	id_curso INT NOT NULL IDENTITY(1,1)
 	CONSTRAINT pk_curso
